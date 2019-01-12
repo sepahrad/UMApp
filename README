@@ -1,0 +1,23 @@
+1) For just runnig program with python from source:
+    1) Install python 3.7.2
+    2) Choose proper devcon and wmic files and copy them to assets/exe/ directory
+    3) execute `python src/main.py`
+
+2) For compiling the program:
+    1) pip install requests tkinter
+    2) cd src/
+    3) Compile them with pyInstaller:
+        Compile with directory mode: 
+            pyinstaller --hidden-import tkinter -i assets/icon/icon.ico --windowed main.py
+        Compile with one-file mode:
+            pyinstaller --hidden-import tkinter -i assets/icon/icon.ico --windowed -F main.py
+            # change name of main.exe to usbmanager.exe
+
+    3) Create a directory with name `main` and copy compiled files from src/build or src/dist directories to it 
+    and then copy src/{assets,config,log} directories too
+    4) The program must run as administrator 
+
+3) For creating an installer for windows:
+    1) Install NSIS
+    2) Compile python codes in one-file mode in step 2 
+    2) Import proper .nsi file from nsis directory
